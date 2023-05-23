@@ -15,7 +15,7 @@ def call(globVarName, globVarValue) {
            envVars = envVarsNodePropertyList.get(0).getEnvVars()
        }
 
-       envVars.put("VM_STATUS", "FAILED")
+       envVars.put(globVarName, globVarValue)
        instance.save()
   }
 }
