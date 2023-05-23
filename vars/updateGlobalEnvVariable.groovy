@@ -1,21 +1,12 @@
 def call(globVarName, globVarValue) {
   node {
        instance = Jenkins.get()
-       globalNodeProperties = instance.getGlobalNodeProperties()
-       envVarsNodePropertyList = globalNodeProperties.getAll(hudson.slaves.EnvironmentVariablesNodeProperty.class)
-
-       newEnvVarsNodeProperty = null
-       envVars = null
-
-       if ( envVarsNodePropertyList == null || envVarsNodePropertyList.size() == 0 ) {
-           newEnvVarsNodeProperty = new hudson.slaves.EnvironmentVariablesNodeProperty();
-           globalNodeProperties.add(newEnvVarsNodeProperty)
-           envVars = newEnvVarsNodeProperty.getEnvVars()
-       } else {
-           envVars = envVarsNodePropertyList.get(0).getEnvVars()
+       def globalNodeProperties = instance.getGlobalNodeProperties()
+       def envVarsNodePropertyList = globalNodeProperties.getAll(hudson.slaves.EnvironmentVariablesNodeProperty.class)
+       if (envVarsNodePropertyList == null || envVarsNodePropertyList.size() == 0) {
+           def envVarsNodePropertyClass = this.class.classLoader.loadClass('hudson.slaves.EnvironmentVariablesNodeProperty')
+           globalNodeProperties.add(envVarsNodePropertyClass.newInstance())
        }
-
-       envVars.put(globVarName, globVarValue)
-       instance.save()
+       envVarsNodePropertyList.get(0).getEnvVars().put(globVarName, globVarValue)
   }
 }
