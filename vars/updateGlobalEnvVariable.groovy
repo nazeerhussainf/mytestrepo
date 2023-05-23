@@ -1,6 +1,6 @@
 def call(globVarName, globVarValue) {
   node {
-       instance = Jenkins.getInstance()
+       instance = Jenkins.get()
        globalNodeProperties = instance.getGlobalNodeProperties()
        envVarsNodePropertyList = globalNodeProperties.getAll(hudson.slaves.EnvironmentVariablesNodeProperty.class)
 
