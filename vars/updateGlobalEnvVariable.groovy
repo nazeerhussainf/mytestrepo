@@ -1,5 +1,5 @@
 @NonCPS
-def updateGlobalEnvVariable(String globVarName, globVarValue) {
+def call(String globVarName, globVarValue) {
         def instance = null
         instance = Jenkins.get()
         def globalNodeProperties = instance.getGlobalNodeProperties()
