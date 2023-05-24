@@ -9,7 +9,7 @@ def call(String globVarName, globVarValue) {
 
        if ( envVarsNodePropertyList == null || envVarsNodePropertyList.size() == 0 ) {
            def newEnvVarsNodeProperty = new hudson.slaves.EnvironmentVariablesNodeProperty();
-           def globalNodeProperties.add(newEnvVarsNodeProperty)
+           globalNodeProperties.add(newEnvVarsNodeProperty)
            def envVars = newEnvVarsNodeProperty.getEnvVars()
        } else {
            def envVars = envVarsNodePropertyList.get(0).getEnvVars()
