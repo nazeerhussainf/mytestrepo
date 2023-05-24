@@ -1,5 +1,5 @@
 @NonCPS
-def call(Map globVarName, globVarValue) {
+def call(globVarName, globVarValue) {
   node {
        instance = Jenkins.get()
        def globalNodeProperties = instance.getGlobalNodeProperties()
