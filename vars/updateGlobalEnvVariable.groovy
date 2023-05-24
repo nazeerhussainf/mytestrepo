@@ -1,4 +1,4 @@
-def call(globVarName, globVarValue) {
+def call(String globVarName, globVarValue) {
   node {
        instance = Jenkins.get()
        def globalNodeProperties = instance.getGlobalNodeProperties()
