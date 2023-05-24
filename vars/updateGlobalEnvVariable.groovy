@@ -1,8 +1,10 @@
 @NonCPS
 def call(String globVarName, globVarValue) {
        instance = Jenkins.get()
-       def globalNodeProperties = instance.getGlobalNodeProperties()
-       def envVarsNodePropertyList = globalNodeProperties.getAll(hudson.slaves.EnvironmentVariablesNodeProperty.class)
+       def globalNodeProperties = null
+       globalNodeProperties = instance.getGlobalNodeProperties()
+       def envVarsNodePropertyList = null
+       envVarsNodePropertyList = globalNodeProperties.getAll(hudson.slaves.EnvironmentVariablesNodeProperty.class)
 
        def newEnvVarsNodeProperty = null
        def envVars = null
