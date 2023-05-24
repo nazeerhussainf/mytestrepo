@@ -8,11 +8,11 @@ def call(String globVarName, globVarValue) {
        def envVars = null
 
        if ( envVarsNodePropertyList == null || envVarsNodePropertyList.size() == 0 ) {
-           def newEnvVarsNodeProperty = new hudson.slaves.EnvironmentVariablesNodeProperty();
+           newEnvVarsNodeProperty = new hudson.slaves.EnvironmentVariablesNodeProperty();
            globalNodeProperties.add(newEnvVarsNodeProperty)
-           def envVars = newEnvVarsNodeProperty.getEnvVars()
+           envVars = newEnvVarsNodeProperty.getEnvVars()
        } else {
-           def envVars = envVarsNodePropertyList.get(0).getEnvVars()
+           envVars = envVarsNodePropertyList.get(0).getEnvVars()
        }
 
        envVars.put(globVarName, globVarValue)
