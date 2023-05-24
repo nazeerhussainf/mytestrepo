@@ -1,5 +1,6 @@
-def call() {
+def call(Map message1, message2) {
   node {
-      echo "Test function"
+    echo "${message1}"
+    echo "${message2}"
   }
 }
