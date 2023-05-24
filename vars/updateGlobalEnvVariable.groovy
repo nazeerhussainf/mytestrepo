@@ -1,3 +1,4 @@
+@NonCPS
 def call(String globVarName, globVarValue) {
   node {
        instance = Jenkins.get()
